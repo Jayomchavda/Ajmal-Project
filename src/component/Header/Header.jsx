@@ -57,7 +57,7 @@ export default function Header() {
 
                             {cookie?.user?.userType === "admin" ? (
                                 <div className='flex gap-40 '>
-                                    <NavLink to="/admin-product">PRODUCT...</NavLink>
+                                    <NavLink to="/admin-product">PRODUCT</NavLink>
                                     <NavLink to="/admin-user">USER</NavLink>
                                     <NavLink to="/admin-order">ORDER</NavLink>
                                 </div>
