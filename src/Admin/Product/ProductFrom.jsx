@@ -224,7 +224,7 @@ export default function ProductForm() {
                             />
                         </FormGroup>
                         <div className="flex justify-center">
-                            <Button type="submit" className='w-[30%] bg-[#bc8b57]' >
+                            <Button type="submit" className='w-[30%] ' >
                                 Submit
                             </Button>
                         </div>
