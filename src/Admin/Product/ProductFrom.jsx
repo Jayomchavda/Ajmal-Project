@@ -17,6 +17,8 @@ export default function ProductForm() {
         thumbnail: "",
     });
 
+
+
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         if (type === "checkbox") {

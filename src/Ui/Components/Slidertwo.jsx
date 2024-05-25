@@ -1,8 +1,8 @@
 import React from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css'; // Import default carousel styles
-import Cardcom from './Cardcom';
 import datatwo from '../../component/datatwo.json';
+import Cardcom from './Cardcom';
 
 const responsive = {
     superLargeDesktop: {

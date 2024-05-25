@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { instanceApi } from '../../Api/axiosconfig';
 import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from "flowbite-react";
+import { instanceApi } from '../../Ui/Api/axiosconfig';
 
 export default function ProductTable() {
     const [products, setProducts] = useState([]);

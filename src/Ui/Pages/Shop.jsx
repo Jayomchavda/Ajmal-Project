@@ -1,8 +1,8 @@
 import React from 'react'
-import Cardcom from '../../Ui/pages/Cardcom'
-import shopdata from "../shopdata.json"
+import shopdata from "../../Ui/Components/shopdata.json"
 import { Dropdown } from "flowbite-react";
-import Footer from '../Footer/Footer';
+import Cardcom from '../Components/Cardcom';
+import Footer from '../Components/Footer';
 
 
 

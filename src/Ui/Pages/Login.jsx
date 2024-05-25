@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { instanceApi } from "../../Api/axiosconfig";
+import { instanceApi } from "../Api/axiosconfig";
 
 export default function Login() {
     let [credential, setCredential] = useState({ email: "", password: "" });
