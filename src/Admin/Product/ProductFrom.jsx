@@ -29,13 +29,10 @@ export default function ProductForm() {
     let [gender, setGender] = useState("");
     let [colorArr, setColorArr] = useState([]);
 
-
-
-
     const multiSelectHandler = (e) => {
-        console.log("----e----", e);
         let data = e.map((e) => e.value);
         setColorArr(data);
+        setFormData({ ...formData, category: data })
     };
 
     const submitHandler = (e) => {
@@ -57,7 +54,6 @@ export default function ProductForm() {
         console.log("Form Data:", formData);
     };
 
-
     const CheckboxHandler = (value, e) => {
         if (e.target.checked) {
             setFormData({ ...formData, size: [...formData.size, value] })
@@ -72,9 +68,9 @@ export default function ProductForm() {
     return (
         <>
             <div className='flex justify-center items-center'>
-                <div className='w-[50%] border border-black p-5'>
-                    <h2 className='text-[30px]'>Add Product From</h2 >
-                    <Form className='text-left' onSubmit={(e) => submitHandler(e)} >
+                <div className='w-[50%]  border-black border-[1px] p-5 rounded-2xl mt-4 '>
+                    <h2 className='text-[30px] font-bold'>Add Product From</h2 >
+                    <Form className='text-left ' onSubmit={(e) => submitHandler(e)} >
                         <FormGroup>
                             <Label for="title">Title</Label>
                             <Input
@@ -147,7 +143,7 @@ export default function ProductForm() {
                                     return { label: e.toUpperCase(), value: e };
                                 })}
                                 onChange={(e) => multiSelectHandler(e)}
-                            // onChange={(e) => setFormData({ ...formData, categorie: e.target.value })}
+                            // onChange={(e) => setFormData({ ...formData, categorie: e?.target?.value })}
                             />
                         </FormGroup>
                         <FormGroup>
@@ -156,9 +152,9 @@ export default function ProductForm() {
                                 id="mainCategorie"
                                 name="mainCategorie"
                                 value={formData.mainCategorie}
-                                onChange={(e) => setFormData({ ...formData, mainCategorie: e.target.value })}
+                                onChange={(e) => setFormData({ ...formData, mainCategorie: e?.target?.value })}
                             >
-                                <option value="">Select a main category</option>
+                                <option value="">Select a Main category</option>
                                 <option value="United States">Combo</option>
                                 <option value="Canada">Attar</option>
                                 <option value="France">Gift</option>
@@ -175,7 +171,10 @@ export default function ProductForm() {
                                         type="radio"
                                         value="male"
                                         checked={gender === "male"}
-                                        onChange={() => setGender("male")}
+                                        onChange={(e) => {
+                                            setGender(e?.target?.value);
+                                            setFormData({ ...formData, gender: e?.target?.value })
+                                        }}
                                     />
 
                                     <Label check>Male</Label>
@@ -186,7 +185,10 @@ export default function ProductForm() {
                                         type="radio"
                                         value="female"
                                         checked={gender === "female"}
-                                        onChange={() => setGender("female")}
+                                        onChange={(e) => {
+                                            setGender(e?.target?.value);
+                                            setFormData({ ...formData, gender: e?.target?.value })
+                                        }}
 
                                     />
 
@@ -198,7 +200,10 @@ export default function ProductForm() {
                                         type="radio"
                                         value="kids"
                                         checked={gender === "kids"}
-                                        onChange={() => setGender("kids")}
+                                        onChange={(e) => {
+                                            setGender(e?.target?.value);
+                                            setFormData({ ...formData, gender: e?.target?.value })
+                                        }}
                                     />
 
                                     <Label check>Kids</Label>
@@ -237,8 +242,6 @@ export default function ProductForm() {
                                         value="150ml"
                                         checked={formData.size.includes("150ml")}
                                         onChange={(e) => CheckboxHandler("150ml", e)}
-
-
                                     />
                                     <Label check>150ml</Label>
                                 </FormGroup>
@@ -255,7 +258,7 @@ export default function ProductForm() {
                             />
                         </FormGroup>
                         <div className="flex justify-center">
-                            <Button onClick={() => submitHandler(e)} type="submit" className='w-[30%] ' >
+                            <Button onClick={() => submitHandler(e)} type="submit" className='w-[50%] mt-2' >
                                 Submit
                             </Button>
                         </div>
