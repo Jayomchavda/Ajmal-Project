@@ -9,6 +9,7 @@ import Footer from '../Components/Footer';
 export default function Shop() {
     return (
         <>
+            {/* --- */}
             <div className='my-4 flex space-x-2 justify-center '>
                 <Dropdown label="Short By recommended" dismissOnClick={false} className="bg-white border border-black " >
                     <Dropdown.Item>Size</Dropdown.Item>
