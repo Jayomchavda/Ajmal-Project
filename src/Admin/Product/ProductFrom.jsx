@@ -100,14 +100,7 @@ export default function ProductForm() {
         }
     };
 
-    // const validation = () => {
-    //     if (!initialProduct?.title) {
-    //         toast.error("Please fill the form");
-    //     }
-    //     if (!formData.description) {
-    //         toast.error("Description is required");
-    //     }
-    // }
+
 
     // const validation = () => {
     //     let isValid = true;
