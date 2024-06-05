@@ -11,6 +11,7 @@ export default function Shop() {
     let [filter, setFilter] = useState({
         mainCategory: "",
         size: [],
+        brand: "",
         gender: "",
         price: {
             gt: 0,
@@ -34,30 +35,34 @@ export default function Shop() {
         }
         getData();
     }, [filter]);
+
+
+
+
     return (
         <>
             <h1>{allData.length}</h1>
             <div className="my-4 flex space-x-2 justify-center ">
                 <Dropdown
-                    label="Short By recommended"
-                    dismissOnClick={false}
+                    label="Sort By Brand"
                     className="bg-white border border-black "
                 >
-                    <Dropdown.Item>Size</Dropdown.Item>
-                    <Dropdown.Item>Best Seller</Dropdown.Item>
-                    <Dropdown.Item>Revenue</Dropdown.Item>
-                    <Dropdown.Item>Most Viewed</Dropdown.Item>
-                    <Dropdown.Item>Reviews Count</Dropdown.Item>
-                    <Dropdown.Item>Top Rated</Dropdown.Item>
-                    <Dropdown.Item>New </Dropdown.Item>
-                    <Dropdown.Item>Biggest Saving </Dropdown.Item>
-                    <Dropdown.Item>Price</Dropdown.Item>
+                    <Dropdown.Item onClick={() => setFilter({ ...filter, brand: "" })}>
+                        All
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={() => setFilter({ ...filter, brand: "newArrivals" })}>
+                        New Arrivals
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={() => setFilter({ ...filter, brand: "summerSale" })}>
+                        Summer Sale
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={() => setFilter({ ...filter, brand: "diwaliSale" })}>
+                        Diwali Sale
+                    </Dropdown.Item>
                 </Dropdown>
 
                 <Dropdown
                     label="Category"
-                    //   dismissOnClick={false}
-
                     className="bg-white border border-black"
                 >
                     <Dropdown.Item
@@ -101,14 +106,25 @@ export default function Shop() {
                     label="Size"
                     className="bg-white border border-black"
                 >
-                    <Dropdown.Item onClick={() => setFilter({ ...filter, size: "" })}>All</Dropdown.Item>
-                    <Dropdown.Item onClick={() => setFilter({ ...filter, size: "10ml" })}>10 ml</Dropdown.Item>
-                    <Dropdown.Item onClick={() => setFilter({ ...filter, size: "50ml" })}>50 ml</Dropdown.Item>
-                    <Dropdown.Item onClick={() => setFilter({ ...filter, size: "100ml" })}>100 ml</Dropdown.Item>
-                    <Dropdown.Item onClick={() => setFilter({ ...filter, size: "150ml" })}>150 ml</Dropdown.Item>
+                    <Dropdown.Item onClick={() => setFilter({ ...filter, size: [""] })}>
+                        All
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={() => setFilter({ ...filter, size: ["10ml"] })}>
+                        10 ml
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={() => setFilter({ ...filter, size: ["50ml"] })}>
+                        50 ml
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={() => setFilter({ ...filter, size: ["100ml"] })}>
+                        100 ml
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={() => setFilter({ ...filter, size: ["150ml"] })}>
+                        150 ml
+                    </Dropdown.Item>
                 </Dropdown>
-                <Dropdown label="price" className="bg-white border border-black">
 
+
+                <Dropdown label="price" className="bg-white border border-black">
                     <Dropdown.Item
                         onClick={() =>
                             setFilter({ ...filter, price: "" })
@@ -129,6 +145,62 @@ export default function Shop() {
                         }
                     >
                         2000-3000
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                        onClick={() =>
+                            setFilter({ ...filter, price: { gt: 3000, lt: 4000 } })
+                        }
+                    >
+                        3000-4000
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                        onClick={() =>
+                            setFilter({ ...filter, price: { gt: 4000, lt: 5000 } })
+                        }
+                    >
+                        4000-5000
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                        onClick={() =>
+                            setFilter({ ...filter, price: { gt: 5000, lt: 6000 } })
+                        }
+                    >
+                        5000-6000
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                        onClick={() =>
+                            setFilter({ ...filter, price: { gt: 6000, lt: 7000 } })
+                        }
+                    >
+                        6000-7000
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                        onClick={() =>
+                            setFilter({ ...filter, price: { gt: 7000, lt: 8000 } })
+                        }
+                    >
+                        7000-8000
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                        onClick={() =>
+                            setFilter({ ...filter, price: { gt: 8000, lt: 9000 } })
+                        }
+                    >
+                        8000-9000
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                        onClick={() =>
+                            setFilter({ ...filter, price: { gt: 9000, lt: 10000 } })
+                        }
+                    >
+                        9000-10000
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                        onClick={() =>
+                            setFilter({ ...filter, price: { gt: 10000, lt: 20000 } })
+                        }
+                    >
+                        10000 & Above
                     </Dropdown.Item>
                 </Dropdown>
 

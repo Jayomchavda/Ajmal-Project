@@ -43,17 +43,20 @@ export default function Cardcom({ item }) {
                         />
                     </div>
                     <div className="mb-2 p-1 pt-2">
-                        <button className="  bg-red-800 rounded-full text-white py-1 border-none">
-                            {item.percentage}
-                        </button>
-                        <p className="text-[15px] mt-2 text-gray-500">{item.title}</p>
+                        <p>{item?.mainCategorie}</p>
+                        <p className=" ">
+                            {item?.percentage}
+                        </p>
+                        <p className="text-[15px] mt-2 text-gray-500">{item?.title}</p>
                         <h2 className="text-[22px] mt-1 card-title title single-line-ellipsis">
-                            {item.description}
+                            {item?.description}
                         </h2>
-                        <p>{item.size}</p>
-                        <p>{item.gender}  </p>
+                        <p>{item?.size?.length > 0 ? item.size[0] : "N/A"}</p>
+
+                        <p>{item?.gender}  </p>
+                        <p>{item?.brand}</p>
                         <p className="py-2">
-                            <p className="mr-2 text-gray-500">{item.discountPercentage}% off</p>
+                            <p className="mr-2 text-gray-500">{item?.discountPercentage}% off</p>
                             <p className="mr-2 text-gray-500">
                                 <del>₹ {originalPrice}</del>
                             </p>
