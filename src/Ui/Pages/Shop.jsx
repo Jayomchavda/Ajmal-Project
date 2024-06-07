@@ -37,6 +37,17 @@ export default function Shop() {
     }, [filter]);
 
 
+    const handleSizeChange = (e) => {
+        const sizeValue = e.target.value;
+        const isChecked = e.target.checked;
+        if (isChecked) {
+            setFilter({ ...filter, size: [...filter.size, sizeValue] });
+        } else {
+            setFilter({ ...filter, size: filter.size.filter(size => size !== sizeValue) });
+        }
+    };
+
+
 
 
     return (
@@ -102,29 +113,29 @@ export default function Shop() {
                     </Dropdown.Item>
                 </Dropdown>
 
-                <Dropdown
-                    label="Size"
-                    className="bg-white border border-black"
-                >
-                    <Dropdown.Item onClick={() => setFilter({ ...filter, size: [""] })}>
-                        All
-                    </Dropdown.Item>
-                    <Dropdown.Item onClick={() => setFilter({ ...filter, size: ["10ml"] })}>
-                        10 ml
-                    </Dropdown.Item>
-                    <Dropdown.Item onClick={() => setFilter({ ...filter, size: ["50ml"] })}>
-                        50 ml
-                    </Dropdown.Item>
-                    <Dropdown.Item onClick={() => setFilter({ ...filter, size: ["100ml"] })}>
-                        100 ml
-                    </Dropdown.Item>
-                    <Dropdown.Item onClick={() => setFilter({ ...filter, size: ["150ml"] })}>
-                        150 ml
-                    </Dropdown.Item>
+                <Dropdown label="Size" className="bg-white border border-black">
+                    <div className="px-4 py-2">
+                        <label className="flex items-center space-x-2">
+                            <input type="checkbox" value="10ml" checked={filter.size.includes("10ml")} onChange={handleSizeChange} />
+                            <span>10 ml</span>
+                        </label>
+                        <label className="flex items-center space-x-2">
+                            <input type="checkbox" value="50ml" checked={filter.size.includes("50ml")} onChange={handleSizeChange} />
+                            <span>50 ml</span>
+                        </label>
+                        <label className="flex items-center space-x-2">
+                            <input type="checkbox" value="100ml" checked={filter.size.includes("100ml")} onChange={handleSizeChange} />
+                            <span>100 ml</span>
+                        </label>
+                        <label className="flex items-center space-x-2">
+                            <input type="checkbox" value="150ml" checked={filter.size.includes("150ml")} onChange={handleSizeChange} />
+                            <span>150 ml</span>
+                        </label>
+                    </div>
                 </Dropdown>
 
 
-                <Dropdown label="price" className="bg-white border border-black">
+                <Dropdown label="Price" className="bg-white border border-black">
                     <Dropdown.Item
                         onClick={() =>
                             setFilter({ ...filter, price: "" })
