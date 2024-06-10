@@ -40,12 +40,16 @@ export default function Shop() {
     const handleSizeChange = (e) => {
         const sizeValue = e.target.value;
         const isChecked = e.target.checked;
+
         if (isChecked) {
             setFilter({ ...filter, size: [...filter.size, sizeValue] });
         } else {
             setFilter({ ...filter, size: filter.size.filter(size => size !== sizeValue) });
         }
     };
+
+
+
 
 
 
@@ -115,6 +119,10 @@ export default function Shop() {
 
                 <Dropdown label="Size" className="bg-white border border-black">
                     <div className="px-4 py-2">
+                        <label className="flex items-center space-x-2">
+                            <input type="checkbox" value="all" checked={filter.size.includes("")} onChange={handleSizeChange} />
+                            <span>all</span>
+                        </label>
                         <label className="flex items-center space-x-2">
                             <input type="checkbox" value="10ml" checked={filter.size.includes("10ml")} onChange={handleSizeChange} />
                             <span>10 ml</span>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
+    Button,
     Label,
     Select,
     Table,
@@ -46,6 +47,11 @@ export default function ProductTable() {
 
     const navigate = useNavigate();
 
+    const selectLimit = (e) => {
+        setPagination({ ...pagination, limit: e?.target?.value, page: 1 });
+
+    }
+
     const deleteHandler = async (product) => {
         try {
             let response = await instanceApi.delete(
@@ -69,11 +75,6 @@ export default function ProductTable() {
         setPagination({ ...pagination, page: e?.selected + 1 });
     };
 
-    const selectLimit = (e) => {
-        setPagination({ ...pagination, limit: e?.target?.value, page: 1 });
-
-    }
-
     return (
         <div className="overflow-x-auto mt-10">
 
@@ -95,7 +96,6 @@ export default function ProductTable() {
                     </Select>
                 </div>
             </div>
-
             <Table>
                 <TableHead>
                     <TableHeadCell>Sr.no</TableHeadCell>
@@ -106,6 +106,7 @@ export default function ProductTable() {
                     <TableHeadCell>Gender</TableHeadCell>
                     <TableHeadCell>Price</TableHeadCell>
                     <TableHeadCell>Rating</TableHeadCell>
+                    <TableHeadCell>Sizes</TableHeadCell>
                     <TableHeadCell>Actions</TableHeadCell>
 
                     <TableHeadCell>
@@ -128,37 +129,44 @@ export default function ProductTable() {
                                 {product.title}
                             </TableCell>
                             <TableCell>{product.description}</TableCell>
-                            <TableCell>
-                                <div className="flex gap-2">
-                                    {
-                                        product?.category.map((e) => {
-                                            return <span className="border-[1px] border-black  p-1">
-                                                {e}
-                                            </span>
-                                        })
-                                    }
-
-                                </div>
-                            </TableCell>
+                            <TableCell>{product?.category?.join?.(", ")}</TableCell>
                             <TableCell>{product.gender}</TableCell>
                             <TableCell>
-                                ${product.price}({product.discountPercentage}% off)
+                                ${product.price} ({product.discountPercentage}% off)
                             </TableCell>
                             <TableCell>{product.rating}</TableCell>
                             <TableCell>
+                                <div className="flex gap-2">
+                                    {["10ml", "50ml", "100ml", "150ml"].map((e) => {
+                                        let available = product.size.includes(e);
+                                        return (
+                                            <span
+                                                className={
+                                                    available
+                                                        ? "border-2 border-black px-2 py-1 rounded-md"
+                                                        : "border-2 border-gray-400 text-gray-400 px-2 py-1 rounded-md"
+                                                }
+                                            >
+                                                {e}
+                                            </span>
+                                        );
+                                    })}
+                                </div>
+                            </TableCell>
+                            <TableCell>
                                 <div className="flex gap-2 h-full items-center">
-                                    <p
-                                        className="font-medium cursor-pointer text-cyan-600 hover:underline "
+                                    <button
+                                        className="font-medium cursor-pointer text-white hover:underline bg-green-500 "
                                         onClick={() => editHandler(product)}
                                     >
                                         Edit
-                                    </p>
-                                    <p
-                                        className="font-medium cursor-pointer text-red-400 hover:underline "
+                                    </button>
+                                    <button
+                                        className="font-medium cursor-pointer text-white hover:underline bg-red-600  "
                                         onClick={() => deleteHandler(product)}
                                     >
                                         delete
-                                    </p>
+                                    </button>
                                 </div>
                             </TableCell>
                         </TableRow>
@@ -181,12 +189,10 @@ export default function ProductTable() {
                 nextClassName="border border-black p-2 rounded"
                 breakClassName="border border-black p-2 rounded"
             />
+
         </div>
-
-
     );
 }
-
 
 /*
 
@@ -194,4 +200,9 @@ export default function ProductTable() {
 25
 50
 100
+let product.size = [2,3]
+let arr = [1,2,3,4,5]
+arr.map((e)=>{
+let ans = size.include(e)
+})
 */

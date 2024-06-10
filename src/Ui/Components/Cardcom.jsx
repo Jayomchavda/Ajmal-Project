@@ -52,8 +52,7 @@ export default function Cardcom({ item }) {
                             {item?.description}
                         </h2>
                         <p>{item?.size?.length > 0 ? item.size[0] : "N/A"}</p>
-
-                        <p>{item?.gender}  </p>
+                        {/* <p>{item?.gender}  </p> */}
                         {/* <p>{item?.brand}</p> */}
                         <p className="py-2">
                             <p className="mr-2 text-gray-500">{item?.discountPercentage}% off</p>

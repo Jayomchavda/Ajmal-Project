@@ -50,7 +50,7 @@ export default function ProductForm() {
 
     const submitHandler = async (e) => {
         e.preventDefault();
-        if (!validation()) return;
+        // if (!validation()) return;
         try {
             setFormData(initialProduct);
             console.log("Form Data:", formData);
@@ -78,7 +78,7 @@ export default function ProductForm() {
 
     const updateHandler = async (e) => {
         e.preventDefault();
-        if (!validation()) return;
+        // if (!validation()) return;
         try {
             setFormData(initialProduct);
             let response = await instanceApi.put(
@@ -154,26 +154,26 @@ export default function ProductForm() {
     // };
 
 
-    const validation = () => {
-        if (
-            !formData?.title ||
-            !formData?.description ||
-            !formData?.price ||
-            !formData?.discountPercentage ||
-            !formData?.availableStock ||
-            !formData?.brand ||
-            !formData?.category?.length ||
-            !formData?.mainCategorie ||
-            !formData?.gender ||
-            !formData?.size?.length ||
-            !formData?.thumbnail
-        ) {
-            toast?.error("Please fill the form properly");
-            return false;
-        }
+    // const validation = () => {
+    //     if (
+    //         !formData?.title ||
+    //         !formData?.description ||
+    //         !formData?.price ||
+    //         !formData?.discountPercentage ||
+    //         !formData?.availableStock ||
+    //         !formData?.brand ||
+    //         !formData?.category?.length ||
+    //         !formData?.mainCategorie ||
+    //         !formData?.gender ||
+    //         !formData?.size?.length ||
+    //         !formData?.thumbnail
+    //     ) {
+    //         toast?.error("Please fill the form properly");
+    //         return false;
+    //     }
 
-        return true;
-    };
+    //     return true;
+    // };
 
 
 
