@@ -5,17 +5,18 @@ import { Button, Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow
 export default function User() {
     const [user, setUsers] = useState([]);
 
+
     useEffect(() => {
         async function fetchUsers() {
             try {
                 const response = await instanceApi.get('/user/getAll');
-                setUsers(response?.data?.data || []);
-                console.log('Fetched Users:', response.data?.data);
+                const allUsers = response?.data?.data || [];
+                const filteredUsers = allUsers.filter(user => user.userType !== 'admin');
+                setUsers(filteredUsers);
             } catch (error) {
-                console.error('Error fetching users:', error);
             }
         }
-        fetchUsers()
+        fetchUsers();
     }, []);
 
 

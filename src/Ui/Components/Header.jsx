@@ -11,7 +11,6 @@ import { useCookies } from "react-cookie";
 export default function Header() {
     const navigate = useNavigate();
     const [sidebarOpen, setSidebarOpen] = useState(false);
-    // const [cookie, setCookie] = useCookies(["token"]);
 
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
@@ -23,14 +22,6 @@ export default function Header() {
     console.log("Cookie:", cookie);
     console.log("User Type:", cookie?.user?.userType);
 
-    // useEffect(() => {
-    //     console.log("Cookies:", cookie);
-    //     if (cookie.user) {
-    //         console.log("User Type:", cookie?.user?.userType);
-    //     } else {
-    //         console.log("User is not logged in or user object is missing.");
-    //     }
-    // }, [cookie]);
 
 
     return (
@@ -51,7 +42,7 @@ export default function Header() {
                                 placeholder="search your fragrance here..."
                                 className="placeholder-gray-300 focus:ring-0 border-none w-full p-1 rounded-l-3xl"
                             />
-                            <Search className="text-gray-400 rounded-r-3xl" />
+                            <Search role='button' className="text-gray-400 rounded-r-3xl" />
                         </div>
                         <div className="flex justify-between [&_*]:font-bold [&_*]:text-gray-500 ">
 

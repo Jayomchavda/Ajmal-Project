@@ -12,15 +12,16 @@ export default function Footer() {
                         <p className='py-4'>Sign up to receive our latest news</p>
                     </div>
                     <div className='flex justify-center'>
-                        <div className='flex items-center'>
+                        <div className='relative'>
                             <input
                                 type="text"
-                                className='border rounded-full border-gray-950 pl-2 pr-0 bg-transparent'
+                                className='border-1 rounded-full border-black w-64 pl-2 pr-10 bg-transparent'
                                 placeholder='Email'
                             />
-                            <ArrowRight />
+                            <ArrowRight role='button' className='absolute right-2 top-1/2 transform -translate-y-1/2 text-black' />
                         </div>
                     </div>
+
                 </div>
                 <div className='footermiddle py-10'>
                     <div className='flex justify-between '>
