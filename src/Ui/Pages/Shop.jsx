@@ -22,20 +22,20 @@ export default function Shop() {
             lt: 100,
         },
     });
+
     useEffect(() => {
-        async function getData(params) {
+        async function getData() {
             try {
                 let response = await instanceApi("/product/getAll", {
                     params: filter,
                 });
                 setAllData(response.data.data);
             } catch (error) {
-                toast.error("Somthing went wrong");
+                toast.error("Something went wrong");
             }
         }
         getData();
     }, [filter]);
-
 
     const handleSizeChange = (e) => {
         const sizeValue = e.target.value;
@@ -48,19 +48,13 @@ export default function Shop() {
         }
     };
 
-
-
-
-
-
-
     return (
         <>
             <h1>{allData.length}</h1>
-            <div className="my-4 flex space-x-2 justify-center ">
+            <div className="my-4 flex space-x-2 justify-center">
                 <Dropdown
                     label="Sort By Brand"
-                    className="bg-white border border-black "
+                    className="bg-white border border-black"
                 >
                     <Dropdown.Item onClick={() => setFilter({ ...filter, brand: "" })}>
                         All
@@ -81,37 +75,37 @@ export default function Shop() {
                     className="bg-white border border-black"
                 >
                     <Dropdown.Item
-                        onClick={(e) => setFilter({ ...filter, mainCategory: "" })}
+                        onClick={() => setFilter({ ...filter, mainCategory: "" })}
                     >
                         All
                     </Dropdown.Item>
                     <Dropdown.Item
-                        onClick={(e) => setFilter({ ...filter, mainCategory: "attar" })}
+                        onClick={() => setFilter({ ...filter, mainCategory: "attar" })}
                     >
                         Attar
                     </Dropdown.Item>
                     <Dropdown.Item
-                        onClick={(e) => setFilter({ ...filter, mainCategory: "bodyMist" })}
+                        onClick={() => setFilter({ ...filter, mainCategory: "bodyMist" })}
                     >
                         Body Mist
                     </Dropdown.Item>
                     <Dropdown.Item
-                        onClick={(e) => setFilter({ ...filter, mainCategory: "bodySpray" })}
+                        onClick={() => setFilter({ ...filter, mainCategory: "bodySpray" })}
                     >
                         Body Spray
                     </Dropdown.Item>
                     <Dropdown.Item
-                        onClick={(e) => setFilter({ ...filter, mainCategory: "gift" })}
+                        onClick={() => setFilter({ ...filter, mainCategory: "gift" })}
                     >
                         Gift
                     </Dropdown.Item>
                     <Dropdown.Item
-                        onClick={(e) => setFilter({ ...filter, mainCategory: "combo" })}
+                        onClick={() => setFilter({ ...filter, mainCategory: "combo" })}
                     >
                         Combos
                     </Dropdown.Item>
                     <Dropdown.Item
-                        onClick={(e) => setFilter({ ...filter, mainCategory: "perfume" })}
+                        onClick={() => setFilter({ ...filter, mainCategory: "perfume" })}
                     >
                         Perfumes
                     </Dropdown.Item>
@@ -120,7 +114,7 @@ export default function Shop() {
                 <Dropdown label="Size" className="bg-white border border-black">
                     <div className="px-4 py-2">
                         <label className="flex items-center space-x-2">
-                            <input type="checkbox" value="all" checked={filter.size.includes("")} onChange={handleSizeChange} />
+                            <input type="checkbox" value="all" checked={filter.size.includes("all")} onChange={handleSizeChange} />
                             <span>all</span>
                         </label>
                         <label className="flex items-center space-x-2">
@@ -142,11 +136,10 @@ export default function Shop() {
                     </div>
                 </Dropdown>
 
-
                 <Dropdown label="Price" className="bg-white border border-black">
                     <Dropdown.Item
                         onClick={() =>
-                            setFilter({ ...filter, price: "" })
+                            setFilter({ ...filter, price: { gt: 0, lt: 10000000 } })
                         }
                     >
                         All
@@ -233,7 +226,7 @@ export default function Shop() {
                     <Dropdown.Item onClick={() => setFilter({ ...filter, gender: "female" })}>Female</Dropdown.Item>
                     <Dropdown.Item onClick={() => setFilter({ ...filter, gender: "kids" })}>Kids</Dropdown.Item>
                 </Dropdown>
-            </div >
+            </div>
             <div className="container mx-auto px-4 py-3">
                 <div className="relative pb-4 ">
                     <img
