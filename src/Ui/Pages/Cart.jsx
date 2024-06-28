@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { instanceApi } from "../Api/axiosconfig";
 import { useCookies } from "react-cookie";
 
+import { updateCartItem } from "../../Redux/cartSlice";
 
 export default function Cart() {
     let cartData = useSelector((store) => store.cartSlice);
@@ -35,6 +36,32 @@ export default function Cart() {
     };
 
 
+    // const increaseQuantity = (productId, qut) => {
+    //     console.log("-----------  qut----------->", qut);
+    //     instanceApi.put(
+    //         "/cart/update",
+    //         {
+    //             _id: cartData.cartId,
+    //             productId: productId,
+    //             quantity: qut + 1,
+    //         },
+    //         {
+    //             headers: {
+    //                 authorization: "bearer " + cookies.token,
+    //             },
+    //         }
+    //     );
+    // };
+
+    const increaseQuantity = (productId, qut) => {
+        console.log("-----------  qut----------->", qut);
+        dispatch(updateCartItem({
+            token: cookies.token,
+            cartId: cartData.cartId,
+            productId: productId,
+            quantity: qut + 1,
+        }));
+    };
 
     return (
         <div>
@@ -100,7 +127,7 @@ export default function Cart() {
                                                         >
                                                             {e?.count}
                                                         </p>
-                                                        <span className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50">
+                                                        <span onClick={() => increaseQuantity(e?.productId?._id, e.count)} className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50">
                                                             +
                                                         </span>
                                                     </div>

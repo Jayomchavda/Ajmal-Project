@@ -13,6 +13,26 @@ export const fetchCart = createAsyncThunk("fecthCart", (token) => {
         });
 });
 
+export const updateCartItem = createAsyncThunk(
+    "updateCartItem",
+    async ({ token, cartId, productId, quantity }) => {
+        const response = await instanceApi.put(
+            "/cart/update",
+            {
+                _id: cartId,
+                productId: productId,
+                quantity: quantity,
+            },
+            {
+                headers: {
+                    authorization: "bearer " + token,
+                },
+            }
+        );
+        return response.data;
+    }
+);
+
 const cartSlice = createSlice({
     name: "cart",
     initialState: { cart: [], pending: false },
@@ -23,6 +43,14 @@ const cartSlice = createSlice({
         })
             .addCase(fetchCart.fulfilled, (state, action) => {
                 console.log("-----------  action----------->", action.payload);
+                state.cart = action.payload.data;
+                state.cartId = action.payload.cartId;
+                state.pending = false;
+            })
+            .addCase(updateCartItem.pending, (state) => {
+                state.pending = true;
+            })
+            .addCase(updateCartItem.fulfilled, (state, action) => {
                 state.cart = action.payload.data;
                 state.cartId = action.payload.cartId;
                 state.pending = false;
