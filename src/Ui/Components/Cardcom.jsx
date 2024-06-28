@@ -1,11 +1,39 @@
 import { Button } from "flowbite-react";
 import React from "react";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
+import { instanceApi } from "../Api/axiosconfig";
 
 export default function Cardcom({ item }) {
+    const [cookies] = useCookies();
+    const navigate = useNavigate();
+
+    const addCartHandler = async () => {
+        if (!cookies.token) {
+            return navigate("/login");
+        } else {
+            try {
+                let response = await instanceApi.post(
+                    "/cart/create/" + item._id,
+                    null,
+                    {
+                        headers: {
+                            authorization: "bearer " + cookies.token,
+                        },
+                    }
+                );
+                console.log("-----------  response----------->", response.data);
+            } catch (error) {
+                console.log("-----------  error----------->", error);
+            }
+        }
+    };
 
     const originalPrice = parseFloat(item.price);
     const discountPercentage = parseFloat(item.discountPercentage);
     const discountedPrice = (originalPrice * (1 - discountPercentage / 100)).toFixed(2);
+
+
 
 
     return (
@@ -63,7 +91,7 @@ export default function Cardcom({ item }) {
                         </p>
                         <div className="flex  justify-center space-x-4 ">
                             <Button className="btn">Buy Now</Button>
-                            <Button className="btn">Add to Cart</Button>
+                            <Button onClick={() => addCartHandler()} className="btn">Add to Cart</Button>
                         </div>
                     </div>
                 </div>

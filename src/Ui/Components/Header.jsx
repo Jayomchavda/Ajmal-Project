@@ -5,6 +5,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { Heart, LogIn, Search, ShoppingCart, User, UserCheck, UserMinus } from "react-feather";
 import { Link } from 'react-router-dom';
 import { useCookies } from "react-cookie";
+import { useDispatch } from 'react-redux';
+import { fetchCart } from '../../Redux/cartSlice';
 
 
 
@@ -21,6 +23,12 @@ export default function Header() {
 
     console.log("Cookie:", cookie);
     console.log("User Type:", cookie?.user?.userType);
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchCart(cookie.token));
+    }, []);
 
 
 
@@ -74,12 +82,12 @@ export default function Header() {
                             onClick={() => navigate("/profile")} role='button' />
 
                     ) : (
-                        <LogIn onClick={() => navigate("/login")} />
+                        <LogIn role='button' onClick={() => navigate("/login")} />
                     )}
 
                     {cookie?.user?.userType !== "admin" && (
                         <>
-                            <ShoppingCart role='button' />
+                            <ShoppingCart onClick={() => navigate("/Cart")} role='button' />
                             <Heart role='button' onClick={toggleSidebar} />
                         </>
                     )}

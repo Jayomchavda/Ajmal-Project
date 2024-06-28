@@ -1,6 +1,8 @@
 import './App.css'
 import "react-multi-carousel/lib/styles.css";
 import Router from './router/Router';
+import { Provider } from 'react-redux';
+import { store } from './Redux/app';
 
 
 
@@ -8,9 +10,9 @@ import Router from './router/Router';
 function App() {
 
   return (
-    <div >
+    <Provider store={store}>
       <Router />
-    </div >
+    </Provider>
   )
 }
 
