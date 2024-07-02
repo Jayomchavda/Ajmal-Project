@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { instanceApi } from "../Api/axiosconfig";
 import { useCookies } from "react-cookie";
 
-import { updateCartItem } from "../../Redux/cartSlice";
+import { fetchCart, updateCartItem } from "../../Redux/cartSlice";
+import { useEffect } from "react";
 
 export default function Cart() {
     let cartData = useSelector((store) => store.cartSlice);
@@ -15,11 +16,14 @@ export default function Cart() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
+
+    useEffect(() => {
+        dispatch(fetchCart(cookies.token))
+    }, [])
+
     const reduceQuanitiy = (productId, isRemove, qut) => {
-        console.log("-----------  qut----------->", qut);
-        if (qut < 1) {
-            isRemove = true;
-        }
+        if (qut === 1) isRemove = true;
+        console.log("isRemove", isRemove);
         instanceApi.put(
             "/cart/update",
             {
@@ -32,36 +36,53 @@ export default function Cart() {
                     authorization: "bearer " + cookies.token,
                 },
             }
-        );
+        ).then((res) => {
+            dispatch(fetchCart(cookies.token))
+        });
+    };
+    const AddQuntity = (productId) => {
+        console.log("productId-=-=->", productId);
+        console.log("cookies.token-=-=->", cookies.token);
+
+        instanceApi.post(
+            "/cart/create/" + productId._id, null,
+            {
+                headers: {
+                    authorization: "bearer " + cookies.token,
+                },
+            }
+        ).then((res) => {
+            dispatch(fetchCart(cookies.token))
+        });;
+
+    };
+
+    const removeData = (productId) => {
+        instanceApi.put(
+            "/cart/update",
+            {
+                _id: cartData.cartId,
+                isRemove: true,
+                productId: productId,
+            },
+            {
+                headers: {
+                    authorization: "bearer " + cookies.token,
+                },
+            }
+        ).then((res) => {
+            dispatch(fetchCart(cookies.token));
+        });
+    };
+
+    const clearCart = () => {
+        cartData.cart.forEach((item) => {
+            removeData(item.productId._id);
+        });
     };
 
 
-    // const increaseQuantity = (productId, qut) => {
-    //     console.log("-----------  qut----------->", qut);
-    //     instanceApi.put(
-    //         "/cart/update",
-    //         {
-    //             _id: cartData.cartId,
-    //             productId: productId,
-    //             quantity: qut + 1,
-    //         },
-    //         {
-    //             headers: {
-    //                 authorization: "bearer " + cookies.token,
-    //             },
-    //         }
-    //     );
-    // };
 
-    const increaseQuantity = (productId, qut) => {
-        console.log("-----------  qut----------->", qut);
-        dispatch(updateCartItem({
-            token: cookies.token,
-            cartId: cartData.cartId,
-            productId: productId,
-            quantity: qut + 1,
-        }));
-    };
 
     return (
         <div>
@@ -74,15 +95,13 @@ export default function Cart() {
                                     Cart Items
                                 </h1>
                                 <div>
-                                    <Button color={"red"}>Clear Cart</Button>
+                                    <Button onClick={clearCart}>Clear Cart</Button>
                                 </div>
                             </div>
                         </div>
                         <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
                             <div className="rounded-lg">
                                 {cartData?.cart?.map?.((e) => {
-                                    e.count;
-                                    console.log("-=-=-new E-=-=> ", e)
                                     return (
                                         <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
                                             <img
@@ -127,7 +146,7 @@ export default function Cart() {
                                                         >
                                                             {e?.count}
                                                         </p>
-                                                        <span onClick={() => increaseQuantity(e?.productId?._id, e.count)} className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50">
+                                                        <span onClick={() => AddQuntity(e?.productId)} className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50">
                                                             +
                                                         </span>
                                                     </div>
@@ -142,6 +161,7 @@ export default function Cart() {
                                                             strokeWidth="1.5"
                                                             stroke="currentColor"
                                                             className="h-5 w-5 cursor-pointer duration-150 hover:text-red-500"
+                                                            onClick={() => removeData(e?.productId?._id)}
                                                         >
                                                             <path
                                                                 strokeLinecap="round"
@@ -182,7 +202,7 @@ export default function Cart() {
                 ) : (
                     <div className="flex items-center gap-3 flex-col">
                         <h1>Please add some data</h1>
-                        <Button onClick={() => navigate("/product/all")}>shop now</Button>
+                        <Button onClick={() => navigate("/shop")}>shop now</Button>
                     </div>
                 )}
             </div>
