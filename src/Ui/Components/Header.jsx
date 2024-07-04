@@ -66,7 +66,7 @@ export default function Header() {
                                     <NavLink to="/shop">SHOP</NavLink>
                                     <NavLink to="/Ourstore">OUR STORES</NavLink>
                                     <NavLink to="/ajmalstudio">AJMAL STUDIO</NavLink>
-                                    <NavLink to="#">ABOUT</NavLink>
+                                    <NavLink to="/about">ABOUT</NavLink>
 
                                 </>
                             )}

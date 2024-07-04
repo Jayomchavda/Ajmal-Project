@@ -13,6 +13,7 @@ import Reg from '../Ui/Pages/Reg'
 import Profile from '../Ui/Pages/Profile'
 import Ourstore from '../Ui/Pages/Ourstore'
 import Cart from '../Ui/Pages/Cart'
+import About from '../Ui/Pages/About'
 
 
 export default function Router() {
@@ -29,6 +30,8 @@ export default function Router() {
                     <Route path='/profile' element={<Profile />} />
                     <Route path='/ajmalstudio' element={<AjmalStudio />} />
                     <Route path='/cart' element={<Cart />} />
+                    <Route path='/about' element={<About />} />
+
 
 
                     {/* ----------- admin page ---------- */}

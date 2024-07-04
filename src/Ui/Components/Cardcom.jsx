@@ -79,7 +79,14 @@ export default function Cardcom({ item }) {
                         <h2 className="text-[22px] mt-1 card-title title single-line-ellipsis">
                             {item?.description}
                         </h2>
-                        <p>{item?.size?.length > 0 ? item.size[0] : "N/A"}</p>
+                        <div className="flex gap-2">
+                            {
+                                item?.size?.length > 0 ? item.size?.map((e) => {
+                                    return <span className="border px-2 py-1 rounded-md">{e}</span>
+                                }) : "N/A"
+                            }
+                        </div>
+                        {/* <p>{item?.size?.length > 0 ? item.size?.join("--") : "N/A"}</p> */}
                         {/* <p>{item?.gender}  </p> */}
                         {/* <p>{item?.brand}</p> */}
                         <p className="py-2">

@@ -38,8 +38,8 @@ export default function Shop() {
     }, [filter]);
 
     const handleSizeChange = (e) => {
-        const sizeValue = e.target.value;
-        const isChecked = e.target.checked;
+        const sizeValue = e?.target?.value;
+        const isChecked = e?.target?.checked;
 
         if (isChecked) {
             setFilter({ ...filter, size: [...filter.size, sizeValue] });
@@ -47,6 +47,8 @@ export default function Shop() {
             setFilter({ ...filter, size: filter.size.filter(size => size !== sizeValue) });
         }
     };
+
+
 
     return (
         <>
