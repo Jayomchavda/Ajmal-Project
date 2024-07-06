@@ -1,9 +1,10 @@
 import React from 'react'
+import Footer from '../Components/Footer'
 
 export default function About() {
     return (
 
-        <div className='bg-[#f9f5f1]' >
+        <div className='' >
             <div className='bg-[#f9f5f1]'>
                 <div>
                     <img src="../../../public/about1.webp" alt="" class="w-full h-auto" />
@@ -79,50 +80,78 @@ export default function About() {
                 </div>
             </div>
 
-            <div class="relative w-full h-screen overflow-hidden">
-                <div class="absolute inset-0">
-                    <img src="../../../public/about3.webp" alt="Crafting Memories" class="w-full  object-cover" />
-                </div>
-                <div class="absolute top-0 right-0 w-1/2  text-left bg-[#f0ebe2] bg-opacity-0 pt-16 ">
-                    <h1 class=" title text-[40px]  mb-4">Crafting Memories</h1>
-                    <div className='font-Gambetta-Regular text-[18px]'>
-                        <p>At Ajmal Perfumes, we have crafted the art of perfumery into a science – such that we craft everlasting memories through our fragrances.</p>
-                        <br />
-                        <p>Ajmal stands strong as a corporate entity with a vast portfolio of over 300 of the finest and most captivating fragrances. We have established a strong retail presence with over 300+ exclusive "Crafting Memories" retail outlets across the GCC and the world.</p>
-                        <br />
-                        <p>Ajmal also has a presence on the international front; currently exporting our exquisite range of products to 60+ countries across the globe and with an exclusive presence through select 30 global Duty-Free locations and International Airlines.</p>
-                    </div>
-                    <div className='flex text-[15px] mt-10 gap-4'>
-                        <div className='border-[2px]  pt-4 pb-4 pl-4 pr-16 rounded-xl bg-white'>
-                            <p className='font-bold '>Crafting ingredients</p>
-                            <p className='font-Gambetta-Regular'>Ajmal as growers</p>
-                        </div>
-                        <div className='border-[2px]  pt-4 pb-4 pl-4 pr-16 rounded-xl bg-white'>
-                            <p className='font-bold'>Crafting ingredients</p>
-                            <p className='font-Gambetta-Regular'>Ajmal as growers</p>
-                        </div>
-                        <div className='border-[2px]  pt-4 pb-4 pl-4 pr-16 rounded-xl bg-white'>
-                            <p className='font-bold'>Crafting ingredients</p>
-                            <p className='font-Gambetta-Regular'>Ajmal as growers</p>
-                        </div>
+            <div className='bg-[#f9f5f1]'>
 
+                <div class="relative w-full h-auto mb-8 ">
+                    <div class="relative">
+                        <img src="../../../public/about3.webp" alt="Crafting Memories" class="w-full object-cover" />
+                        <div class="absolute top-0 right-0 w-1/2 text-left bg-[#f0ebe2] bg-opacity-0 pt-16">
+                            <h1 class="title text-[40px] mb-4">Crafting Memories</h1>
+                            <div className='font-Gambetta-Regular text-[18px]'>
+                                <p>At Ajmal Perfumes, we have crafted the art of perfumery into a science – such that we craft everlasting memories through our fragrances.</p>
+                                <br />
+                                <p>Ajmal stands strong as a corporate entity with a vast portfolio of over 300 of the finest and most captivating fragrances. We have established a strong retail presence with over 300+ exclusive "Crafting Memories" retail outlets across the GCC and the world.</p>
+                                <br />
+                                <p>Ajmal also has a presence on the international front; currently exporting our exquisite range of products to 60+ countries across the globe and with an exclusive presence through select 30 global Duty-Free locations and International Airlines.</p>
+                            </div>
+                            <div className='flex text-[15px] mt-10 gap-4'>
+                                <div className='border-[2px] pt-4 pb-4 pl-4 pr-16 rounded-xl bg-white'>
+                                    <p className='font-bold'>Crafting ingredients</p>
+                                    <p className='font-Gambetta-Regular'>Ajmal as growers</p>
+                                </div>
+                                <div className='border-[2px] pt-4 pb-4 pl-4 pr-16 rounded-xl bg-white'>
+                                    <p className='font-bold'>Crafting ingredients</p>
+                                    <p className='font-Gambetta-Regular'>Ajmal as growers</p>
+                                </div>
+                                <div className='border-[2px] pt-4 pb-4 pl-4 pr-16 rounded-xl bg-white'>
+                                    <p className='font-bold'>Crafting ingredients</p>
+                                    <p className='font-Gambetta-Regular'>Ajmal as growers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative w-full h-auto">
+                    <div class="relative">
+                        <img src="../../../public/about4.webp" alt="" class="w-full" />
+                        <div class="absolute top-[230px] left-[300px] text-left font-bold">
+                            <i class="text-[35px] font-Gambetta-Regular">Trust needs <br />craftsmanship</i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative w-full h-auto  mt-6">
+                    <div class="relative">
+                        <img src="../../../public/about5.webp" alt="Crafting Memories" class="w-full  object-cover h-[670px]" />
+                        <div class="absolute top-0 left-0 m-7  w-1/2 text-left bg-[#f0ebe2] bg-opacity-0 pt-16">
+                            <h1 class="title text-[40px] mb-4">Crafting Happiness</h1>
+                            <div className='font-Gambetta-Regular text-[18px]'>
+                                <p>Ajmal is not just about Crafting Memories through our internationally-acclaimed perfumes; we are also gifted, enriched and bejeweled with a number of socio-welfare initiatives under our Corporate Social Responsibilities (CSR). Caring for society is one of Ajmal Perfumes’ core values. We salute the vision and dreams of our Founder Father, Late Haji Ajmal Ali and his wife, Late Maryamunnesa Ajmal</p>
+                                <br />
+                                <p>Ajmal is a Brand with a ‘Purpose’ – every year, 10% of the Ajmal Group’s net profits are used for philanthropic activities. These funds go to the deserving and underprivileged in the form of free treatment in hospitals and free education in schools, colleges and orphanages; including vocational training of the youth. Thereby, we cherish the memories of beautiful smiles symbolizing happiness, as enriching lives through modern education and Crafting Memories of Happiness go hand in hand.</p>
+
+                            </div>
+                            <div className='flex text-[15px] mt-10 gap-1'>
+                                <div className='border-[2px] pt-4 pb-4 pl-4 pr-16 rounded-xl bg-white'>
+                                    <p className='font-bold'>Crafting a global essence</p>
+                                </div>
+                                <div className='border-[2px] pt-4 pb-4 pl-4 pr-16 rounded-xl bg-white'>
+                                    <p className='font-bold'>Focus on Healthcare, education and skill training</p>
+                                    {/* <p className='font-Gambetta-Regular'>Ajmal as growers</p> */}
+                                </div>
+                                <div className='border-[2px] pt-4 pb-4 pl-4 pr-16 rounded-xl bg-white'>
+                                    <p className='font-bold'>Environmental preservation</p>
+                                    {/* <p className='font-Gambetta-Regular'>Ajmal as growers</p> */}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="relative ">
-                <div class="absolute inset-0">
-                    <img src="../../../public/about4.webp" alt="" class="w-full " />
-                </div>
-                <div class="absolute top-[230px] left-[300px] text-left font-bold ">
-                    <i class="text-[35px] font-Gambetta-Regular ">Trust needs <br />craftsmanship </i>
-                </div>
-            </div >
-
-
-
+            <Footer />
 
         </div >
-
     )
 }
