@@ -6,7 +6,7 @@ import { useCookies } from "react-cookie";
 
 import { fetchCart, updateCartItem } from "../../Redux/cartSlice";
 import { useEffect } from "react";
-import { Trash } from "react-feather";
+import { ShoppingBag, Trash } from "react-feather";
 
 export default function Cart() {
     let cartData = useSelector((store) => store.cartSlice);
@@ -94,18 +94,17 @@ export default function Cart() {
 
 
 
-
-
     return (
         <div>
-            <div className=" bg-gray-100 p-5  ">
+            <div className=" bg-gray-100 p-4  ">
                 {cartData?.cart?.length > 0 ? (
                     <>
-                        <div className="flex bg-slate-700  items-center w-full  border-1 border-black rounded-xl py-2" >
-                            <h1 className="text-2xl font-bold flex-grow text-center text-white">
-                                My Cart
+                        <div className="flex bg-slate-700 items-center w-full border-1 border-black rounded-xl py-2">
+                            <h1 className="text-2xl font-bold flex-grow text-center text-white flex items-center justify-center">
+                                <ShoppingBag className="mr-2" /> My Cart
                             </h1>
                         </div>
+
                         <Button className="ml-auto mt-3 bg-slate-700 p-1" onClick={clearCart}>Clear Cart</Button>
 
                         <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0 my-3">
@@ -198,7 +197,7 @@ export default function Cart() {
                                     </div>
 
                                 </div>
-                                <button className="mt-6 w-full rounded-md  py-1.5 font-medium text-blue-50  bg-slate-700">
+                                <button className="mt-6 w-full rounded-ml  py-1.5 font-medium text-blue-50  bg-slate-700">
                                     Check out
                                 </button>
                             </div>
