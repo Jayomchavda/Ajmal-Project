@@ -142,7 +142,7 @@ export default function Cart() {
                                                                     e.count
                                                                 )
                                                             }
-                                                            className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"
+                                                            className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-slate-700 hover:text-blue-50"
                                                         >
                                                             -
                                                         </span>
@@ -154,7 +154,7 @@ export default function Cart() {
                                                         >
                                                             {e?.count}
                                                         </p>
-                                                        <span onClick={() => AddQuntity(e?.productId)} className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50">
+                                                        <span onClick={() => AddQuntity(e?.productId)} className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-slate-700 hover:text-blue-50">
                                                             +
                                                         </span>
                                                     </div>
