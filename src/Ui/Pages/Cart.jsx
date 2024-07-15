@@ -10,7 +10,7 @@ import { ShoppingBag, Trash } from "react-feather";
 
 export default function Cart() {
     let cartData = useSelector((store) => store.cartSlice);
-    console.log("-----------  cartData----------->", cartData);
+    // console.log("-----------  cartData----------->", cartData);
 
     const [cookies] = useCookies();
 
@@ -95,6 +95,7 @@ export default function Cart() {
 
     return (
         <div>
+
             <div className=" bg-gray-100 p-4  ">
                 {cartData?.cart?.length > 0 ? (
                     <>

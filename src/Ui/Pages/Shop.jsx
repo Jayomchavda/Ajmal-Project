@@ -50,6 +50,9 @@ export default function Shop() {
 
 
 
+
+
+
     return (
         <>
             <h1>{allData.length}</h1>

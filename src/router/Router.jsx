@@ -14,6 +14,7 @@ import Profile from '../Ui/Pages/Profile'
 import Ourstore from '../Ui/Pages/Ourstore'
 import Cart from '../Ui/Pages/Cart'
 import About from '../Ui/Pages/About'
+import SingleProduct from '../Ui/Pages/SingleProduct'
 
 
 export default function Router() {
@@ -22,6 +23,7 @@ export default function Router() {
             <BrowserRouter>
                 <Header />
                 <Routes>
+
                     <Route path='/' element={<Home />} />
                     <Route path='/shop' element={<Shop />} />
                     <Route path='/ourstore' element={<Ourstore />} />
@@ -31,7 +33,7 @@ export default function Router() {
                     <Route path='/ajmalstudio' element={<AjmalStudio />} />
                     <Route path='/cart' element={<Cart />} />
                     <Route path='/about' element={<About />} />
-
+                    <Route path="/product/:id" element={<SingleProduct />} />
 
 
                     {/* ----------- admin page ---------- */}
