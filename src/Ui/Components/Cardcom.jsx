@@ -73,7 +73,7 @@ export default function Cardcom({ item }) {
                                 className="m-auto h-[300px]  content-center  "
                             />
                         </div>
-                        <div className="mb-2 p-1 pt-2">
+                        <div className="mb-2 p-1 pt-2 text-black ">
                             <p>{item?.mainCategorie}</p>
                             <p className=" ">
                                 {item?.percentage}
