@@ -83,8 +83,8 @@ export default function Cart() {
     };
 
     const calculateSubtotal = () => {
-        return cartData.cart.reduce((total, item) => {
-            return total + (item.count * item.productId.price);
+        return cartData?.cart?.reduce((total, item) => {
+            return total + (item.count * item?.productId?.price);
         }, 0);
     };
 

@@ -89,7 +89,6 @@ export default function Cardcom({ item }) {
                                     }) : "N/A"
                                 }
                             </div>
-                            {/* <p>{item?.size?.length > 0 ? item.size?.join("--") : "N/A"}</p> */}
                             {/* <p>{item?.gender}  </p> */}
                             {/* <p>{item?.brand}</p> */}
                             <p className="py-2">
