@@ -163,7 +163,7 @@ export default function Cart() {
                                                             ₹ {e?.count * e?.productId?.price}
                                                         </p>
 
-                                                        <Trash className="size-5" onClick={() => removeData(e?.productId?._id)} />
+                                                        <Trash role="button" className="size-5" onClick={() => removeData(e?.productId?._id)} />
                                                     </div>
                                                 </div>
                                             </div>

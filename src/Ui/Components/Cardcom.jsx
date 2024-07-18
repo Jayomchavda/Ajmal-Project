@@ -3,6 +3,7 @@ import React from "react";
 import { useCookies } from "react-cookie";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { instanceApi } from "../Api/axiosconfig";
+import { ShoppingCart } from "react-feather";
 
 export default function Cardcom({ item }) {
     const [cookies] = useCookies();
@@ -29,42 +30,26 @@ export default function Cardcom({ item }) {
         }
     };
 
-
     const originalPrice = parseFloat(item.price);
     const discountPercentage = parseFloat(item.discountPercentage);
     const discountedPrice = (originalPrice * (1 - discountPercentage / 100)).toFixed(2);
 
-
-
+    const buyNowHandler = () => {
+        if (!cookies.token) {
+            return navigate("/login");
+        } else {
+            navigate(`/buy/${item._id}`);
+        }
+    };
 
     return (
         <div className="p-1 mt-5 ">
-            <NavLink to={`/product/${item._id}`}>
-
-                <div
-                    className=" p-4 mt-5 rounded-lg"
-                    style={{ backgroundColor: item.cardcolor }}
-                >
+            <div
+                className=" p-4 mt-5 rounded-lg"
+                style={{ backgroundColor: item.cardcolor }}
+            >
+                <NavLink to={`/product/${item._id}`}>
                     <div className="cursor-pointer">
-                        <a
-                            style={{
-                                width: "32px",
-                                height: "32px",
-                                lineHeight: "26px",
-                                background: "#bc8b573d",
-                                borderRadius: "100px",
-                                display: "flex",
-                                marginLeft: "auto",
-                                padding: "8px",
-                            }}
-                            className="product-wishlist"
-                        >
-                            <img
-                                src="https://in.ajmal.com/IconLike-9bG.svg"
-                                alt="wishlist"
-                                style={{ width: "100%", height: "auto" }}
-                            />
-                        </a>
                         <div className="product-img  h-[300px] p-2 rounded-lg text-center ">
                             <img
                                 src={item?.thumbnail}
@@ -89,8 +74,6 @@ export default function Cardcom({ item }) {
                                     }) : "N/A"
                                 }
                             </div>
-                            {/* <p>{item?.gender}  </p> */}
-                            {/* <p>{item?.brand}</p> */}
                             <p className="py-2">
                                 <p className="mr-2 text-gray-500">{item?.discountPercentage}% off</p>
                                 <p className="mr-2 text-gray-500">
@@ -98,18 +81,16 @@ export default function Cardcom({ item }) {
                                 </p>
                                 <p className="text-[20px] font-bold">₹ {discountedPrice}</p>
                             </p>
-                            <div className="flex  justify-center space-x-4 ">
-                                <Button className="btn">Buy Now</Button>
-                                <Button onClick={() => addCartHandler()} className="btn">Add to Cart</Button>
-                            </div>
                         </div>
                     </div>
+                </NavLink>
+
+                <div className="flex justify-center space-x-4 ">
+                    {/* <Button className="btn">Buy Now</Button> */}
+                    <Button className="btn" onClick={buyNowHandler}>Buy Now</Button>
+                    <Button onClick={() => addCartHandler()} className="btn"> <ShoppingCart className="size-5 mr-2" />Add to Cart</Button>
                 </div>
-
-            </NavLink>
-
-
-
-        </div >
+            </div>
+        </div>
     );
 }

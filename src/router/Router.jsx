@@ -15,6 +15,7 @@ import Ourstore from '../Ui/Pages/Ourstore'
 import Cart from '../Ui/Pages/Cart'
 import About from '../Ui/Pages/About'
 import SingleProduct from '../Ui/Pages/SingleProduct'
+import Buynow from '../Ui/Pages/Buynow'
 
 
 export default function Router() {
@@ -34,6 +35,8 @@ export default function Router() {
                     <Route path='/cart' element={<Cart />} />
                     <Route path='/about' element={<About />} />
                     <Route path="/product/:id" element={<SingleProduct />} />
+                    <Route path="/buy/:itemId" element={<Buynow />} />
+
 
 
                     {/* ----------- admin page ---------- */}
