@@ -51,7 +51,7 @@ export default function Buynow() {
                             <Input
                                 id="examplename"
                                 name="name"
-                                placeholder="Enter your name"
+                                placeholder="Name"
                                 type="text"
                                 value={formData.name}
                                 onChange={handleChange}
