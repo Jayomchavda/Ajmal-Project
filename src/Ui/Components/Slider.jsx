@@ -1,6 +1,5 @@
-import React from 'react';
 import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css'; // Import default carousel styles
+import 'react-multi-carousel/lib/styles.css';
 import Cardcom from './Cardcom';
 
 // import data from "./data.json"
@@ -8,7 +7,7 @@ import Cardcom from './Cardcom';
 const responsive = {
     superLargeDesktop: {
         breakpoint: { max: 4000, min: 3000 },
-        items: 7 // Adjusted items to display 7 items
+        items: 7
     },
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
@@ -24,6 +23,9 @@ const responsive = {
     }
 };
 
+
+
+
 const Slider = ({ data }) => {
     return (
         <div className="w-[1470px] mx-auto">
@@ -38,9 +40,10 @@ const Slider = ({ data }) => {
                     </div>
                 })}
             </Carousel>}
-        </div>
+        </div >
     );
 };
+
 
 export default Slider;
 

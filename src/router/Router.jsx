@@ -24,7 +24,6 @@ export default function Router() {
             <BrowserRouter>
                 <Header />
                 <Routes>
-
                     <Route path='/' element={<Home />} />
                     <Route path='/shop' element={<Shop />} />
                     <Route path='/ourstore' element={<Ourstore />} />

@@ -10,7 +10,6 @@ import Footer from '../Components/Footer';
 import Arrivals from '../Components/Arrivals';
 import Slider from '../Components/Slider';
 
-
 export default function Home() {
     return (
         <div>
