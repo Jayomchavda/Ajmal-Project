@@ -1,8 +1,8 @@
+import React from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Cardcom from './Cardcom';
 
-// import data from "./data.json"
 
 const responsive = {
     superLargeDesktop: {
@@ -23,28 +23,28 @@ const responsive = {
     }
 };
 
-
-
-
 const Slider = ({ data }) => {
+    console.log("data-=-=->", data)
+
     return (
         <div className="w-[1470px] mx-auto">
-            {data && <Carousel
-                responsive={responsive}
-                arrows={true}
-                infinite={false}  >
-
-                {data?.map?.((item) => {
-                    return <div>
-                        <Cardcom key={item?.id} item={item} />
-                    </div>
-                })}
-            </Carousel>}
+            {data && (
+                <Carousel
+                    responsive={responsive}
+                    arrows={true}
+                    infinite={true}
+                >
+                    {data?.map((item) => (
+                        // console.log("item-=-=->", item)
+                        <div key={item.id} >
+                            <Cardcom item={item} />
+                        </div>
+                    ))}
+                </Carousel>
+            )
+            }
         </div >
     );
 };
 
-
 export default Slider;
-
-

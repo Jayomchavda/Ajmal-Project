@@ -38,17 +38,17 @@ export default function SingleProduct() {
         <div className="max-w-5xl mx-auto p-4">
             <div className="flex flex-col md:flex-row items-center md:items-start w-full md:w-[100%] mx-auto">
                 <div className="w-[650px] h-[450px] flex justify-center items-center">
-                    <img src={product.data.thumbnail} alt={product.data.title} className="max-w-full max-h-full object-contain rounded shadow-md" />
+                    <img src={product?.data?.thumbnail} alt={product?.data?.title} className="max-w-full max-h-full object-contain rounded shadow-md" />
                 </div>
                 <div className="w-full md:w-3/7 mt-4 md:mt-0 md:ml-6 text-left">
-                    <h1 className="text-3xl font-bold mb-2">{product.data.title}</h1>
-                    <p className="text-gray-500 text-2xl mb-1"><span className="font-semibold">Description:</span> {product.data.description}</p>
+                    <h1 className="text-3xl font-bold mb-2">{product?.data?.title}</h1>
+                    <p className="text-gray-500 text-2xl mb-1"><span className="font-semibold">Description:</span> {product?.data?.description}</p>
 
-                    <p className="text-gray-500 text-[20px] mb-1"><span className="font-semibold">Brand:</span> {product.data.brand}</p>
+                    <p className="text-gray-500 text-[20px] mb-1"><span className="font-semibold">Brand:</span> {product?.data?.brand}</p>
 
-                    <p className="text-gray-500 text-[20px] mb-1"><span className="font-semibold">Gender:</span> {product.data.gender}</p>
+                    <p className="text-gray-500 text-[20px] mb-1"><span className="font-semibold">Gender:</span> {product?.data?.gender}</p>
 
-                    <p className="text-gray-500 text-[20px] mb-1"><span className="font-semibold">Main Category:</span> {product.data.mainCategory}</p>
+                    <p className="text-gray-500 text-[20px] mb-1"><span className="font-semibold">Main Category:</span> {product?.data?.mainCategory}</p>
 
                     <div className="flex gap-2">
                         <label className="text-gray-500 text-[20px] mb-1 font-bold">Category:</label>
@@ -76,7 +76,7 @@ export default function SingleProduct() {
                         }
                     </div>
 
-                    <p className="text-gray-500 text-[20px] mt-1"><span className="font-semibold">Discount:</span> {product.data.discountPercentage}% off</p>
+                    <p className="text-gray-500 text-[20px] mt-1"><span className="font-semibold">Discount:</span> {product?.data?.discountPercentage}% off</p>
 
 
 

@@ -1,7 +1,7 @@
 import React from 'react'
-import data from '../../Ui/Components/data.json'
-import data2 from "../../Ui/Components/datatwo.json"
-import data3 from "../../Ui/Components/datathree.json"
+import data from "../Components/data.json"
+import data2 from "../Components/datatwo.json"
+import data3 from "../Components/datathree.json"
 import Bestseller from '../Components/Bestseller';
 import PopularCat from '../Components/PopularCat';
 import Heroimgslider from '../Components/Heroimgslider';
@@ -11,6 +11,8 @@ import Arrivals from '../Components/Arrivals';
 import Slider from '../Components/Slider';
 
 export default function Home() {
+
+
     return (
         <div>
             <Heroimgslider />

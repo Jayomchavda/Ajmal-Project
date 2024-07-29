@@ -4,6 +4,7 @@ import { useCookies } from "react-cookie";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { instanceApi } from "../Api/axiosconfig";
 import { ShoppingCart } from "react-feather";
+import { toast } from "react-toastify";
 
 export default function Cardcom({ item }) {
     const [cookies] = useCookies();
@@ -23,16 +24,19 @@ export default function Cardcom({ item }) {
                         },
                     }
                 );
-                console.log("responce=-==-=-=-=-=-=>-", response);
+                // console.log("responce=-==-=-=-=-=-=>-", response);
             } catch (error) {
-                console.log("-----------  error----------->", error);
+                // console.log("-----------  error----------->", error);
             }
         }
     };
 
-    const originalPrice = parseFloat(item.price);
-    const discountPercentage = parseFloat(item.discountPercentage);
+    const originalPrice = parseFloat(item?.price);
+    const discountPercentage = parseFloat(item?.discountPercentage);
     const discountedPrice = (originalPrice * (1 - discountPercentage / 100)).toFixed(2);
+
+
+
 
     const buyNowHandler = () => {
         if (!cookies.token) {
@@ -42,17 +46,18 @@ export default function Cardcom({ item }) {
         }
     };
 
+
     return (
         <div className="p-1 mt-5 ">
             <div
                 className=" p-4 mt-5 rounded-lg"
-                style={{ backgroundColor: item.cardcolor }}
+                style={{ backgroundColor: item?.cardcolor || item.cardcolor }}
             >
-                <NavLink to={`/product/${item._id}`}>
+                <NavLink to={`/product/${item?._id}`}>
                     <div className="cursor-pointer">
                         <div className="product-img  h-[300px] p-2 rounded-lg text-center ">
                             <img
-                                src={item?.thumbnail}
+                                src={item?.thumbnail || item?.image_url}
                                 alt=""
                                 srcSet=""
                                 className="m-auto h-[300px]  content-center  "
@@ -60,12 +65,10 @@ export default function Cardcom({ item }) {
                         </div>
                         <div className="mb-2 p-1 pt-2 text-black ">
                             <p>{item?.mainCategorie}</p>
-                            <p className=" ">
-                                {item?.percentage}
-                            </p>
-                            <p className="text-[15px] mt-2 text-gray-500">{item?.title}</p>
+
+                            <p className="text-[15px] mt-2 text-gray-500">{item?.title || item?.details}</p>
                             <h2 className="text-[22px] mt-1 card-title title single-line-ellipsis">
-                                {item?.description}
+                                {item?.description || item?.brand}
                             </h2>
                             <div className="flex gap-2">
                                 {
@@ -75,11 +78,12 @@ export default function Cardcom({ item }) {
                                 }
                             </div>
                             <p className="py-2">
-                                <p className="mr-2 text-gray-500">{item?.discountPercentage}% off</p>
+                                <p className="mr-2 text-gray-500">{item?.discountPercentage || item?.percentage}% off</p>
                                 <p className="mr-2 text-gray-500">
-                                    <del>₹ {originalPrice}</del>
+                                    <del>₹ {originalPrice || item?.delprice}</del>
                                 </p>
-                                <p className="text-[20px] font-bold">₹ {discountedPrice}</p>
+                                <p className="text-[20px] font-bold">₹ {discountedPrice || item?.price}</p>
+
                             </p>
                         </div>
                     </div>
