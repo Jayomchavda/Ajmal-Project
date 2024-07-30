@@ -84,6 +84,7 @@ export default function Cardcom({ item }) {
                                 </p>
                                 <p className="text-[20px] font-bold">₹ {discountedPrice || item?.price}</p>
 
+
                             </p>
                         </div>
                     </div>

@@ -55,7 +55,7 @@ export default function Shop() {
 
     return (
         <>
-            <h1>{allData.length}</h1>
+            {/* <h1>{allData.length}</h1> */}
             <div className="my-4 flex space-x-2 justify-center">
                 <Dropdown
                     label="Sort By Brand"
