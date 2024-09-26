@@ -25,5 +25,18 @@ export default function Home() {
             <Instatitle />
             <Footer />
         </div>
+
+        // <div className="container mx-auto px-4">
+        //     <Heroimgslider />
+        //     <Arrivals className="my-8" />
+        //     <Slider data={data} className="my-8" />
+        //     <Bestseller className="my-8" />
+        //     <Slider data={data2} className="my-8" />
+        //     <PopularCat className="my-8" />
+        //     <Slider data={data3} className="my-8" />
+        //     <Instatitle className="my-8" />
+        //     <Footer className="my-8" />
+        // </div>
+
     )
 }

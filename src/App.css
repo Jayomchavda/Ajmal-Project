@@ -98,22 +98,23 @@ a.btn:hover {
 }
 
 .popularImg_img--img1 {
-  background-image: url('https://in.ajmal.com/public/images/shop-women.jpg');
+  background-image: url(https://en-ae.ajmal.com/public/images/shop-women.jpg);
   transform: scale(1);
 }
 
 .popularImg:hover .popularImg_img--img1 {
-  background-image: url('https://in.ajmal.com/public/images/shop-women-hover.jpg');
+
+  background-image: url(https://en-ae.ajmal.com/public/images/shop-women.jpg);
   transform: scale(1.15);
 }
 
 .popularImg_img--img2 {
-  background-image: url('https://in.ajmal.com/public/images/shop-men.jpg');
+  background-image: url(https://en-ae.ajmal.com/public/images/shop-men.jpg);
   transform: scale(1);
 }
 
 .popularImg:hover .popularImg_img--img2 {
-  background-image: url('https://in.ajmal.com/public/images/shop-men-hover.jpg');
+  background-image: url(https://en-ae.ajmal.com/public/images/shop-men.jpg);
   transform: scale(1.15);
 }
 
