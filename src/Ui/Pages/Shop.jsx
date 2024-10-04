@@ -240,7 +240,7 @@ export default function Shop() {
                         className="w-full "
                     />
                     <div className="absolute inset-0 flex items-center justify-center">
-                        <i className="text-white text-5xl font-bold title"> SHOP </i>
+                        <i className="text-white text-6xl font-bold title"> SHOP </i>
                     </div>
                 </div>
 
